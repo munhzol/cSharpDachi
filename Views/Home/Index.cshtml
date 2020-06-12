@@ -1,0 +1,57 @@
+﻿@model Dachi
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col"> &nbsp; </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <div class="card" style="width: 18rem;">
+            <div id="img" class="emogi @Model.Img"></div>
+            <div class="card-body">
+                <p class="card-text" id="status">@Model.Status</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span class="badge badge-success">Fullness: <span id="fullness">@Model.Fullness</span></span>
+                    <span class="badge badge-info">Happiness: <span id="happiness">@Model.Happiness</span></span>
+                    <span class="badge badge-danger">Meals: <span id="meals">@Model.Meals</span></span>
+                    <span class="badge badge-primary">Energy: <span id="energy">@Model.Energy</span></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col py-2 px-4">
+        @{
+            if(!@Model.Lose() && !@Model.Won()){
+                <a href="/feed" id="feed" class="btn btn-show btn-outline-primary">Feed</a>
+                <a href="/play" id="play" class="btn btn-show btn-outline-primary">Play</a>
+                <a href="/work" id="work" class="btn btn-show btn-outline-primary">Work</a>
+                <a href="/sleep" id="sleep" class="btn btn-show btn-outline-primary">Sleep</a>
+                <a href="/reset" class="btn btn-reset btn-outline-danger" style="display:none;" >Reset</a>
+            } else {
+                <a href="/reset" id="reset" class="btn btn-reset btn-outline-danger">Reset</a>
+            }
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="chbajaxcall" >
+        <label class="form-check-label" for="defaultCheck1">
+            Ajax Call
+        </label>
+        </div>
+    </div>
+</div>
+
